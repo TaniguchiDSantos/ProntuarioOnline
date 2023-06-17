@@ -34,8 +34,8 @@ public class TelaExame extends javax.swing.JFrame {
     public TelaExame(String id, String nome, String tipoAcesso) {
         initComponents();
         jLabelIDHide.setText(id);
-        jLabelNome1.setText(nome);
-        jLabelTipoAcesso1.setText(tipoAcesso);
+        jLabelNome.setText(nome);
+        jLabelTipoAcesso.setText(tipoAcesso);
         jPanelInfoHide.setVisible(false);
         if (tipoAcesso.equals("Paciente")) {
             List<Exame_Sangue> exames = new ArrayList<Exame_Sangue>();
@@ -83,17 +83,17 @@ public class TelaExame extends javax.swing.JFrame {
     }
 
     public void visibilidadeMenu() {
-        if (jLabelTipoAcesso1.getText().equals("Paciente")) {
+        if (jLabelTipoAcesso.getText().equals("Paciente")) {
             tab2.setVisible(true);
             tab2.setVisible(false);
             tab3.setVisible(false);
             tab4.setVisible(false);
-        } else if (jLabelTipoAcesso1.getText().equals("Medico")) {
+        } else if (jLabelTipoAcesso.getText().equals("Medico")) {
             tab2.setVisible(true);
             tab2.setVisible(true);
             tab3.setVisible(false);
             tab4.setVisible(false);
-        } else if (jLabelTipoAcesso1.getText().equals("Laboratorio")) {
+        } else if (jLabelTipoAcesso.getText().equals("Laboratorio")) {
             tab2.setVisible(true);
             tab2.setVisible(true);
             tab3.setVisible(false);
@@ -116,6 +116,16 @@ public class TelaExame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelGeral = new javax.swing.JPanel();
+        jPanelTable = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabelAddIcon = new javax.swing.JLabel();
+        jPanelInfoHide = new javax.swing.JPanel();
+        jLabelNomeHide = new javax.swing.JLabel();
+        jLabelIDHide = new javax.swing.JLabel();
+        jPanelInfo = new javax.swing.JPanel();
+        jLabelNome = new javax.swing.JLabel();
+        jLabelTipoAcesso = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         tab1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -130,23 +140,95 @@ public class TelaExame extends javax.swing.JFrame {
         tab5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jPanelTable = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanelSearchField = new javax.swing.JPanel();
         jTextSearch = new javax.swing.JTextField();
         jLabelSearchIcon = new javax.swing.JLabel();
-        jLabelAddIcon = new javax.swing.JLabel();
-        jPanelInfoHide = new javax.swing.JPanel();
-        jLabelNomeHide = new javax.swing.JLabel();
-        jLabelIDHide = new javax.swing.JLabel();
-        jPanelInfo1 = new javax.swing.JPanel();
-        jLabelNome1 = new javax.swing.JLabel();
-        jLabelTipoAcesso1 = new javax.swing.JLabel();
+        jTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanelGeral.setBackground(new java.awt.Color(185, 244, 115));
+
+        jTable1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Código Exame", "Paciente", "Laboratorio", "Hemacias", "Hematocrito", "Hemoglobina", "Volume Globular Medio", "Leucocitos", "Plaquetas", "Observação", "Data Criação", "Responsável"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanelTableLayout = new javax.swing.GroupLayout(jPanelTable);
+        jPanelTable.setLayout(jPanelTableLayout);
+        jPanelTableLayout.setHorizontalGroup(
+            jPanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+        );
+        jPanelTableLayout.setVerticalGroup(
+            jPanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 983, Short.MAX_VALUE)
+        );
+
+        jLabelAddIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\tanig\\Downloads\\telasA3\\src\\main\\java\\com\\mycompany\\telasa3\\add32.png")); // NOI18N
+        jLabelAddIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelAddIconMouseClicked(evt);
+            }
+        });
+
+        jPanelInfoHide.setBackground(new java.awt.Color(185, 244, 115));
+
+        javax.swing.GroupLayout jPanelInfoHideLayout = new javax.swing.GroupLayout(jPanelInfoHide);
+        jPanelInfoHide.setLayout(jPanelInfoHideLayout);
+        jPanelInfoHideLayout.setHorizontalGroup(
+            jPanelInfoHideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInfoHideLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelInfoHideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNomeHide)
+                    .addComponent(jLabelIDHide))
+                .addContainerGap(506, Short.MAX_VALUE))
+        );
+        jPanelInfoHideLayout.setVerticalGroup(
+            jPanelInfoHideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInfoHideLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelNomeHide)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelIDHide)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        jPanelInfo.setBackground(new java.awt.Color(185, 244, 115));
+
+        jLabelNome.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jLabelNome.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabelTipoAcesso.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jLabelTipoAcesso.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanelInfoLayout = new javax.swing.GroupLayout(jPanelInfo);
+        jPanelInfo.setLayout(jPanelInfoLayout);
+        jPanelInfoLayout.setHorizontalGroup(
+            jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelInfoLayout.createSequentialGroup()
+                .addComponent(jLabelTipoAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanelInfoLayout.setVerticalGroup(
+            jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelTipoAcesso, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+        );
 
         jPanel1.setBackground(new java.awt.Color(86, 230, 44));
         jPanel1.setForeground(new java.awt.Color(86, 230, 44));
@@ -230,7 +312,7 @@ public class TelaExame extends javax.swing.JFrame {
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -250,16 +332,16 @@ public class TelaExame extends javax.swing.JFrame {
         tab4Layout.setHorizontalGroup(
             tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab4Layout.createSequentialGroup()
-                .addGap(104, 104, 104)
+                .addGap(106, 106, 106)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab4Layout.setVerticalGroup(
             tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab4Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel4)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
@@ -287,22 +369,19 @@ public class TelaExame extends javax.swing.JFrame {
             tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel8)
+                .addComponent(jLabel9)
+                .addGap(59, 59, 59)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab5Layout.setVerticalGroup(
             tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tab5Layout.createSequentialGroup()
-                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tab5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tab5Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8)))
-                .addContainerGap(8, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -310,9 +389,6 @@ public class TelaExame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tab1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tab2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tab3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tab4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -323,6 +399,9 @@ public class TelaExame extends javax.swing.JFrame {
                         .addComponent(jLabel5)))
                 .addContainerGap(123, Short.MAX_VALUE))
             .addComponent(tab5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tab2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tab3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tab4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,31 +423,6 @@ public class TelaExame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Código Exame", "Paciente", "Laboratorio", "Hemacias", "Hematocrito", "Hemoglobina", "Volume Globular Medio", "Leucocitos", "Plaquetas", "Observação", "Data Criação", "Responsável"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        javax.swing.GroupLayout jPanelTableLayout = new javax.swing.GroupLayout(jPanelTable);
-        jPanelTable.setLayout(jPanelTableLayout);
-        jPanelTableLayout.setHorizontalGroup(
-            jPanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-        );
-        jPanelTableLayout.setVerticalGroup(
-            jPanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 983, Short.MAX_VALUE)
-        );
-
         jPanelSearchField.setBackground(new java.awt.Color(255, 255, 255));
         jPanelSearchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
 
@@ -376,7 +430,7 @@ public class TelaExame extends javax.swing.JFrame {
         jTextSearch.setToolTipText("Pesquise Pelo Código do Exame");
         jTextSearch.setBorder(null);
 
-        jLabelSearchIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\tanig\\Downloads\\icons8-search-50.png")); // NOI18N
+        jLabelSearchIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\tanig\\Downloads\\telasA3\\src\\main\\java\\com\\mycompany\\telasa3\\icons8-search-50.png")); // NOI18N
         jLabelSearchIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelSearchIconMouseClicked(evt);
@@ -390,8 +444,7 @@ public class TelaExame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSearchFieldLayout.createSequentialGroup()
                 .addComponent(jLabelSearchIcon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTextSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE))
         );
         jPanelSearchFieldLayout.setVerticalGroup(
             jPanelSearchFieldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -399,99 +452,53 @@ public class TelaExame extends javax.swing.JFrame {
             .addComponent(jTextSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jLabelAddIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\tanig\\Downloads\\icons8-add-32.png")); // NOI18N
-        jLabelAddIcon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelAddIconMouseClicked(evt);
-            }
-        });
-
-        jPanelInfoHide.setBackground(new java.awt.Color(185, 244, 115));
-
-        javax.swing.GroupLayout jPanelInfoHideLayout = new javax.swing.GroupLayout(jPanelInfoHide);
-        jPanelInfoHide.setLayout(jPanelInfoHideLayout);
-        jPanelInfoHideLayout.setHorizontalGroup(
-            jPanelInfoHideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInfoHideLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelInfoHideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNomeHide)
-                    .addComponent(jLabelIDHide))
-                .addContainerGap(184, Short.MAX_VALUE))
-        );
-        jPanelInfoHideLayout.setVerticalGroup(
-            jPanelInfoHideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInfoHideLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelNomeHide)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelIDHide)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-
-        jPanelInfo1.setBackground(new java.awt.Color(185, 244, 115));
-
-        jLabelNome1.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        jLabelNome1.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabelTipoAcesso1.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        jLabelTipoAcesso1.setForeground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanelInfo1Layout = new javax.swing.GroupLayout(jPanelInfo1);
-        jPanelInfo1.setLayout(jPanelInfo1Layout);
-        jPanelInfo1Layout.setHorizontalGroup(
-            jPanelInfo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelNome1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanelInfo1Layout.createSequentialGroup()
-                .addComponent(jLabelTipoAcesso1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 178, Short.MAX_VALUE))
-        );
-        jPanelInfo1Layout.setVerticalGroup(
-            jPanelInfo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInfo1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelTipoAcesso1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
-        );
+        jTitle.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
+        jTitle.setText("EXAMES");
 
         javax.swing.GroupLayout jPanelGeralLayout = new javax.swing.GroupLayout(jPanelGeral);
         jPanelGeral.setLayout(jPanelGeralLayout);
         jPanelGeralLayout.setHorizontalGroup(
             jPanelGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGeralLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelGeralLayout.createSequentialGroup()
-                        .addComponent(jPanelInfoHide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(531, 531, 531)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelGeralLayout.createSequentialGroup()
+                                .addComponent(jTitle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelAddIcon))
+                            .addComponent(jPanelTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelGeralLayout.createSequentialGroup()
+                        .addGap(289, 289, 289)
                         .addComponent(jPanelSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
-                        .addComponent(jPanelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanelTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGeralLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabelAddIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jPanelInfoHide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(301, 301, 301))
         );
         jPanelGeralLayout.setVerticalGroup(
             jPanelGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelGeralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGroup(jPanelGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAddIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(jPanelGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelGeralLayout.createSequentialGroup()
-                        .addContainerGap(56, Short.MAX_VALUE)
-                        .addComponent(jPanelInfoHide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(119, 119, 119))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelGeralLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanelSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelAddIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jPanelTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(124, 124, 124)
+                        .addComponent(jPanelInfoHide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -508,21 +515,16 @@ public class TelaExame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1MouseClicked
-        new TelaExame(jLabelIDHide.getText(), jLabelNome1.getText(), jLabelTipoAcesso1.getText()).setVisible(true); // Open the Second.java window
-        dispose();
-    }//GEN-LAST:event_tab1MouseClicked
-
     private void jLabelSearchIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSearchIconMouseClicked
         Exame_Sangue exame = new Exame_Sangue();
-        if (jLabelTipoAcesso1.getText().equals("Paciente")) {
+        if (jLabelTipoAcesso.getText().equals("Paciente")) {
             Exame_Sangue exameSangue = exame.consultaExamePaciente(Integer.parseInt(jTextSearch.getText()), Integer.parseInt(jLabelIDHide.getText()));
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             if (exameSangue != null) {
                 model.setRowCount(0);
                 model.addRow(new Object[]{exameSangue.getCodigoExame(), exameSangue.getNomePaciente(), exameSangue.getNomeLaboratorio(), exameSangue.getHemacias(), exameSangue.getHematocrito(), exameSangue.getHemoglobinas(), exameSangue.getVolumeGlobularMedio(), exameSangue.getLeucocitos(), exameSangue.getPlaquetas(), exameSangue.getObservacao(), exameSangue.getDataCriacao(), exameSangue.getResponsavelCriacao()});
             }
-        } else if (jLabelTipoAcesso1.getText().equals("Laboratorio")) {
+        } else if (jLabelTipoAcesso.getText().equals("Laboratorio")) {
             Exame_Sangue exameSangue = exame.consultaExameLaboratorio(Integer.parseInt(jTextSearch.getText()), Integer.parseInt(jLabelIDHide.getText()));
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             if (exameSangue != null) {
@@ -542,24 +544,29 @@ public class TelaExame extends javax.swing.JFrame {
 
     private void jLabelAddIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAddIconMouseClicked
         // TODO add your handling code here:
-        new TelaExame_Cadastro(jLabelIDHide.getText(), jLabelNome1.getText(), jLabelTipoAcesso1.getText()).setVisible(true); // Open the Second.java window
+        new TelaExame_Cadastro(jLabelIDHide.getText(), jLabelNome.getText(), jLabelTipoAcesso.getText()).setVisible(true); // Open the Second.java window
         dispose();
     }//GEN-LAST:event_jLabelAddIconMouseClicked
 
+    private void tab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1MouseClicked
+
+        new TelaExame(jLabelIDHide.getText(),jLabelNome.getText(), jLabelTipoAcesso.getText()).setVisible(true); // Open the Second.java window
+    }//GEN-LAST:event_tab1MouseClicked
+
     private void tab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2MouseClicked
-        new TelaPaciente(jLabelIDHide.getText(), jLabelNome1.getText(), jLabelTipoAcesso1.getText()).setVisible(true); // Open the Second.java window
-        dispose();        // TODO add your handling code here:
+        new TelaPaciente(jLabelIDHide.getText(),jLabelNome.getText(), jLabelTipoAcesso.getText()).setVisible(true); // Open the Second.java window
+        dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_tab2MouseClicked
 
+    private void tab3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab3MouseClicked
+        new TelaMedico(jLabelIDHide.getText(),jLabelNome.getText(), jLabelTipoAcesso.getText()).setVisible(true);
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_tab3MouseClicked
+
     private void tab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4MouseClicked
-        new TelaLaboratorio(jLabelIDHide.getText(), jLabelNome1.getText(), jLabelTipoAcesso1.getText()).setVisible(true);
+        new TelaLaboratorio(jLabelIDHide.getText(),jLabelNome.getText(), jLabelTipoAcesso.getText()).setVisible(true);
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_tab4MouseClicked
-
-    private void tab3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab3MouseClicked
-        new TelaMedico(jLabelIDHide.getText(), jLabelNome1.getText(), jLabelTipoAcesso1.getText()).setVisible(true);
-        dispose();       // TODO add your handling code here:
-    }//GEN-LAST:event_tab3MouseClicked
 
     private void tab5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab5MouseClicked
         new TelaLogin().setVisible(true);
@@ -611,13 +618,13 @@ public class TelaExame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAddIcon;
     private javax.swing.JLabel jLabelIDHide;
-    private javax.swing.JLabel jLabelNome1;
+    private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelNomeHide;
     private javax.swing.JLabel jLabelSearchIcon;
-    private javax.swing.JLabel jLabelTipoAcesso1;
+    private javax.swing.JLabel jLabelTipoAcesso;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelGeral;
-    private javax.swing.JPanel jPanelInfo1;
+    private javax.swing.JPanel jPanelInfo;
     private javax.swing.JPanel jPanelInfoHide;
     private javax.swing.JPanel jPanelSearchField;
     private javax.swing.JPanel jPanelTable;
@@ -625,6 +632,7 @@ public class TelaExame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextSearch;
+    private javax.swing.JLabel jTitle;
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
     private javax.swing.JPanel tab3;

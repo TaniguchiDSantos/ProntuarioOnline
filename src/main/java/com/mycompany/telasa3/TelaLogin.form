@@ -79,7 +79,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\tanig\Downloads\8666781_activity_health_icon.png"/>
+              <Image iconType="2" name="C:\Users\tanig\Downloads\telasA3\src\main\java\com\mycompany\telasa3\8666781_activity_health_icon.png"/>
             </Property>
           </Properties>
         </Component>
@@ -105,12 +105,10 @@
                       <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jLabelSearchPacienteIcon" pref="399" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPanelEmail" pref="399" max="32767" attributes="0"/>
-                              <Component id="jLabelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPanelSenha" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jLabelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanelEmail" alignment="0" pref="399" max="32767" attributes="0"/>
+                          <Component id="jLabelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanelSenha" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>

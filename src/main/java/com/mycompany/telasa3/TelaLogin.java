@@ -47,7 +47,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jPanelGeral.setBackground(new java.awt.Color(185, 244, 115));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\tanig\\Downloads\\8666781_activity_health_icon.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\tanig\\Downloads\\telasA3\\src\\main\\java\\com\\mycompany\\telasa3\\8666781_activity_health_icon.png")); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Light", 1, 30)); // NOI18N
         jLabel7.setText("VITAMED");
@@ -120,11 +120,10 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(0, 13, Short.MAX_VALUE)
                 .addGroup(jPanelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabelSearchPacienteIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                    .addGroup(jPanelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabelEmail)
-                        .addComponent(jPanelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                        .addComponent(jLabelSenha)
-                        .addComponent(jPanelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabelEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+                    .addComponent(jLabelSenha, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
         jPanelFormLayout.setVerticalGroup(
